@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+// 変数定義
+$base-color: #696969;
+$fixed-bg-color: #ff7f50;
+$fixed-text-color: #ffffff;
+$navbar-color: #f0f8ff;
+$transition-speed: 0.3s;
+$font-family: sans-serif;
+
+// リセット
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+}
+
+// キービジュアル
+.keyvisual {
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// ナビゲーションバー
+.navbar {
+  background-color: $navbar-color;
+  transition: background-color $transition-speed ease;
+  padding: 1rem;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $base-color;
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $fixed-bg-color;
+    color: $fixed-text-color;
+    z-index: 1000;
+
+    a {
+      color: $fixed-text-color;
+    }
+  }
+}
+
+// コンテンツ
+.content {
+  margin-top: 1000px;
+}
