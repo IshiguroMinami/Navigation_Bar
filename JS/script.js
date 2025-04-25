@@ -9,4 +9,8 @@ $(function() {
       $navbar.removeClass('fixed');
     }
   });
+
+  $(window).on('resize', function() {
+    navbarOffset = $navbar.offset().top;
+  });
 });

@@ -32,7 +32,7 @@ body {
 .navbar {
   background-color: $navbar-color;
   transition: background-color $transition-speed ease;
-  padding: 1rem;
+  padding: 20px;
 
   ul {
     list-style: none;
@@ -55,6 +55,7 @@ body {
     background-color: $fixed-bg-color;
     color: $fixed-text-color;
     z-index: 1000;
+    padding: 20px;
 
     a {
       color: $fixed-text-color;
@@ -65,4 +66,13 @@ body {
 // コンテンツ
 .content {
   padding-top: 1000px;
+}
+@media screen and (max-width: 480px) {
+  .navbar ul {
+    font-size: 0.9rem;
+  }
+
+  .navbar a {
+    padding: 0.5rem 1rem;
+  }
 }
