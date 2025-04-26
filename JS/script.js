@@ -1,16 +1,29 @@
 $(function() {
+  var $window = $(window);
   var $navbar = $('#navbar');
   var navbarOffset = $navbar.offset().top;
+  var resizeTimeout = null;
 
-  $(window).on('scroll', function() {
-    if ($(window).scrollTop() >= navbarOffset) {
+  function checkNavbarFixed() {
+    if ($window.scrollTop() >= navbarOffset) {
       $navbar.addClass('fixed');
     } else {
       $navbar.removeClass('fixed');
     }
+  }
+
+  $window.on('scroll', checkNavbarFixed);
+
+  $window.on('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      $navbar.removeClass('fixed');
+      navbarOffset = $navbar.offset().top;
+      checkNavbarFixed();
+    }, 200);
   });
 
-  $(window).on('resize', function() {
-    navbarOffset = $navbar.offset().top;
+  $window.on('load', function() {
+    checkNavbarFixed();
   });
 });
